@@ -161,7 +161,7 @@ footer {
   width: 23rem;
   font-weight: 300;
   letter-spacing: 1px;
-  margin-left: 2rem;
+  margin-left: 1.5rem;
 }
 
 .footer-middle {
@@ -170,6 +170,7 @@ footer {
   flex-direction: column;
   gap: 1rem;
   text-decoration: none;
+  margin-left: 2rem;
 }
 .footer-middle a {
   text-decoration: none;
@@ -183,6 +184,7 @@ footer {
   flex-direction: column;
   margin-right: 4.5rem;
   font-weight: 300;
+  margin-left: 1.7rem;
 }
 
 .address,
@@ -601,7 +603,7 @@ textarea:focus {
   }
   .order-summary-container {
     position: relative;
-    left: 1rem;
+    left: 0.5rem;
   }
 
   .cart-container {
@@ -833,7 +835,7 @@ textarea:focus {
   }
 
   .order-summary-container {
-    width: 17rem;
+    width: 15rem;
     height: 18rem;
   }
 
