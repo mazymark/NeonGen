@@ -20,14 +20,6 @@ export default function App() {
   const [paid, setPaid] = useState(false);
   const [loadingButton, setLoadingButton] = useState(false);
 
-  function buttonLoader() {
-    setLoadingButton(true);
-
-    setTimeout(() => {
-      setLoadingButton(false);
-    }, 1000);
-  }
-
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
@@ -63,11 +55,21 @@ export default function App() {
   }
 
   function popup() {
-    setShowPopup(true);
+    setTimeout(() => {
+      setShowPopup(true);
+    }, 300);
 
     setTimeout(() => {
       setShowPopup(false);
     }, 2000);
+  }
+
+  function buttonLoader() {
+    setLoadingButton(true);
+
+    setTimeout(() => {
+      setLoadingButton(false);
+    }, 1000);
   }
 
   function handleDecrementCartItem(product) {
