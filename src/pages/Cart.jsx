@@ -71,12 +71,16 @@ export default function Cart() {
       {cart.length > 0 && <OrderSummary totalSum={totalSum} />}
 
       {cart.length === 0 && (
-        <h1 className="empty-cart-message">
-          Shopping cart is empty
+        <div className="empty-cart-container">
+          <img
+            className="empty-cart-image"
+            src="images/empty-cart.png"
+            alt="Empty Cart"
+          />
           <Link className="nav-link-empty" to="/shop">
             Go To Shop
           </Link>
-        </h1>
+        </div>
       )}
 
       <div className="cart-footer">

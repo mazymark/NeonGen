@@ -18,6 +18,15 @@ export default function App() {
   const [showPopup, setShowPopup] = useState(false);
   const totalCartItems = cart.reduce((acc, item) => acc + item.quantity, 0);
   const [paid, setPaid] = useState(false);
+  const [loadingButton, setLoadingButton] = useState(false);
+
+  function buttonLoader() {
+    setLoadingButton(true);
+
+    setTimeout(() => {
+      setLoadingButton(false);
+    }, 1000);
+  }
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -28,6 +37,7 @@ export default function App() {
       alert("Please select a size");
       return;
     }
+
     const newItem = { product, quantity, size };
     if (
       cart.some((item) => item.product.id === product.id && item.size === size)
@@ -42,11 +52,13 @@ export default function App() {
       setSize("");
       setQuantity(1);
       popup();
+      buttonLoader();
     } else {
       setCart([...cart, newItem]);
       setSize("");
       setQuantity(1);
       popup();
+      buttonLoader();
     }
   }
 
@@ -110,6 +122,7 @@ export default function App() {
         handleRemoveCartItem,
         showPopup,
         orderDone,
+        loadingButton,
       }}
     >
       <BrowserRouter>

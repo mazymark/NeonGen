@@ -10,8 +10,16 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 
 export default function ProductDetails() {
-  const { data, size, setSize, quantity, setQuantity, addToCart, showPopup } =
-    useContext(MyContext);
+  const {
+    data,
+    size,
+    setSize,
+    quantity,
+    setQuantity,
+    addToCart,
+    showPopup,
+    loadingButton,
+  } = useContext(MyContext);
   const { id } = useParams();
   const product = data.find((product) => product.id === Number(id));
 
@@ -150,12 +158,19 @@ export default function ProductDetails() {
           <RemoveIcon className="decrement-icon" onClick={handleDecrement} />
           <span className="quantity"> {quantity} </span>
           <AddIcon className="increment-icon" onClick={handleIncrement} />
-          <button
-            onClick={() => addToCart(product, quantity, size)}
-            className="add-to-cart-button"
-          >
-            Add To Cart
-          </button>
+
+          {!loadingButton ? (
+            <button
+              onClick={() => addToCart(product, quantity, size)}
+              className="add-to-cart-button"
+            >
+              ADD TO CART
+            </button>
+          ) : (
+            <button className="add-to-cart-loading">
+              <div className="button-loader"></div>
+            </button>
+          )}
         </div>
       </div>
     </>
