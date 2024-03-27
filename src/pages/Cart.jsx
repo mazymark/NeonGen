@@ -24,7 +24,7 @@ export default function Cart() {
   return (
     <>
       <NavBar />
-      <h1 className="cart-title">Your Bag</h1>
+      <h1 className="cart-title">Your Cart</h1>
 
       {cart.length > 0 && (
         <Link className="continue-shopping-button" to="/shop">
